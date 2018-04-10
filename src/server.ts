@@ -73,7 +73,7 @@ class Server {
 
 	//设置mongodb初始化
 	private setMongodbInit() {
-		const MONGO_URI = 'mongodb://localhost/webSite';
+		const MONGO_URI = 'mongodb://localhost/building';
 		Mongoose.connect(MONGO_URI || process.env.MONGO_URI);
 		this.app.use(bodyParser.urlencoded({ extended: false }));
 		this.app.use(bodyParser.json());

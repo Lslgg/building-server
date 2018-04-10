@@ -1,0 +1,42 @@
+# 导航菜单
+type BuildingMenu {
+	id: ID	
+	title: String    	
+    parentId:String
+    isSecond:Boolean    
+	updateAt: Date
+	createAt: Date
+}
+
+
+extend type Query {
+	# 查找所有菜单
+	getBuildingMenu: [BuildingMenu]	
+	# 根据Id查找菜单
+	getBuildingMenuById(id:String):BuildingMenu
+	# 分页查找菜单
+	getBuildingMenuPage(pageIndex:Int,pageSize:Int,buildingMenu:searchBuildingMenu):[BuildingMenu]
+	# 统计数量
+	getBuildingMenuCount(buildingMenu:searchBuildingMenu):Int
+	# 根据条件查找菜单
+	getBuildingMenuWhere(buildingMenu: searchBuildingMenu): [BuildingMenu]
+}
+
+extend type Mutation {
+	# 创建菜单|修改菜单
+	saveBuildingMenu(buildingMenu: inputBuildingMenu): BuildingMenu		
+	# 删除菜单
+	deleteBuildingMenu(id:String):Boolean
+}
+
+input inputBuildingMenu {
+	id: ID	
+	title: String    	
+    parentId:String
+    isSecond:Boolean    	
+}
+
+input searchBuildingMenu {					
+	id: Json
+	isSecond: Boolean
+}
