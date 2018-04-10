@@ -100,7 +100,7 @@ class Server {
 		
 		//设置mongodb连接
 		const MONGO_URI = 'mongodb://localhost/bulding';
-		Mongoose.connect(MONGO_URI || process.env.MONGO_URI, { useMongoClient: true });
+		Mongoose.connect(MONGO_URI || process.env.MONGO_URI);
 		this.app.use(bodyParser.urlencoded({ extended: false }));
 		this.app.use(bodyParser.json());
 		
