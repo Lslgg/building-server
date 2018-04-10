@@ -97,6 +97,16 @@ class Server {
 
 		//设置网站
 		this.app.use("/", express.static(path.join(__dirname, '../web')));
+		
+		//设置mongodb连接
+		const MONGO_URI = 'mongodb://localhost/bulding';
+		Mongoose.connect(MONGO_URI || process.env.MONGO_URI, { useMongoClient: true });
+		this.app.use(bodyParser.urlencoded({ extended: false }));
+		this.app.use(bodyParser.json());
+		
+		//设置cors 跨域
+		const corsOption = this.setCors();
+		this.app.use(cors(corsOption));
 	}
 
 	//设置session
