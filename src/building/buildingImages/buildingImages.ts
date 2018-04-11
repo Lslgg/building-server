@@ -1,20 +1,22 @@
 import { model, Schema, Document } from 'mongoose';
 
-export interface IBuildingMenuModel extends Document {
+export interface IBuildingImagesModel extends Document {
     id: string
     title: String
-    link: String
-    parentId: String
-    isSecond: Boolean
+    brief: String
+    type: String
+    imageIds: [String]
+    desc: String
     updateAt: Date
     createAt: Date
 }
 
 let schema: Schema = new Schema({
     title: String,
-    link: String,
-    parentId: String,
-    isSecond: Boolean,
+    brief: String,
+    type: String,
+    imageIds: [String],
+    desc: String,
     createAt: {
         type: Date,
         default: new Date(),
@@ -27,4 +29,4 @@ let schema: Schema = new Schema({
     }
 });
 
-export default model<IBuildingMenuModel>('BuildingMenu', schema);
+export default model<IBuildingImagesModel>('BuildingImages', schema);

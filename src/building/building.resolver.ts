@@ -1,21 +1,32 @@
 import { BuildingMenu } from "./buildingMenu/buildingMenu.resolver";
+import { BuildingImages } from "./buildingImages/buildingImages.resolver";
+import { BuildingInfo } from "./buildingInfo/buildingInfo.resolver";
+import { BuildingArticle } from "./buildingArticle/buildingArticle.resolver";
 
 
 
 export class BuildingResolver {
-    
+
     constructor() {
 
     }
     static Building: any = {
-        ...BuildingMenu.BuildingMenu
+        BuildingMenu: BuildingMenu.BuildingMenu,
+        BuildingImages: BuildingImages.BuildingImages,
+        BuildingArticle: BuildingArticle.BuildingArticle
     }
 
     static Query: any = {
-        ...BuildingMenu.Query
+        ...BuildingMenu.Query,
+        ...BuildingImages.Query,
+        ...BuildingInfo.Query,
+        ...BuildingArticle.Query
     }
 
     static Mutation: any = {
-        ...BuildingMenu.Mutation
+        ...BuildingMenu.Mutation,
+        ...BuildingImages.Mutation,
+        ...BuildingInfo.Mutation,
+        ...BuildingArticle.Mutation
     }
 }

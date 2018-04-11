@@ -1,0 +1,48 @@
+# 导航菜单
+type BuildingArticle {
+	id: ID	
+	type:String
+	title:String	
+	author:String		
+	Images: [File]
+	content:String
+	desc:String
+	updateAt: Date
+	createAt: Date
+}
+
+
+extend type Query {
+	# 查找所有菜单
+	getBuildingArticle: [BuildingArticle]	
+	# 根据Id查找菜单
+	getBuildingArticleById(id:String):BuildingArticle
+	# 分页查找菜单
+	getBuildingArticlePage(pageIndex:Int,pageSize:Int,buildingArticle:searchBuildingArticle):[BuildingArticle]
+	# 统计数量
+	getBuildingArticleCount(buildingArticle:searchBuildingArticle):Int
+	# 根据条件查找菜单
+	getBuildingArticleWhere(buildingArticle: searchBuildingArticle): [BuildingArticle]
+}
+
+extend type Mutation {
+	# 创建菜单|修改菜单
+	saveBuildingArticle(buildingArticle: inputBuildingArticle): BuildingArticle		
+	# 删除菜单
+	deleteBuildingArticle(id:String):Boolean
+}
+
+input inputBuildingArticle {
+    id: ID	
+	type:String
+	title:String	
+	author:String	
+	imageIds: [String] 
+	content:String
+	desc:String	
+}
+
+input searchBuildingArticle {					
+	id: Json	
+	type: Json
+}

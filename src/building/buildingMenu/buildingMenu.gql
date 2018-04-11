@@ -1,7 +1,8 @@
 # 导航菜单
 type BuildingMenu {
 	id: ID	
-	title: String    	
+	title: String   
+	link: String 	
     parentId:String
     isSecond:Boolean    
 	updateAt: Date
@@ -30,8 +31,9 @@ extend type Mutation {
 }
 
 input inputBuildingMenu {
-	id: ID	
-	title: String    	
+	id: String
+	title: String 
+	link: String 	   	
     parentId:String
     isSecond:Boolean    	
 }

@@ -54,9 +54,10 @@ export class BuildingMenu {
                 Object.assign(res, buildingMenu);
                 return res;
             }
+            // return null;
             return await BuildingMenuSchema.create(buildingMenu);
         },
-        deleteBuildingMenu(parent, { buildingMenu }, context): Promise<Boolean> {
+        deleteBuildingMenu(parent, { id }, context): Promise<Boolean> {
             if (!context.user) return null;
             return new Promise<Boolean>((resolve, reject) => {
                 resolve(false);

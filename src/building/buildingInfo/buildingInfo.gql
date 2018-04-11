@@ -1,0 +1,55 @@
+# 导航菜单
+type BuildingInfo {
+	id: ID	
+	phone:String
+	email:String
+	qqLink:String
+	tcWeibo:String
+	xlWeibo:String
+	tbLink:String
+	address:String
+	brief:String
+	code:String
+	copyright:String		
+	updateAt: Date
+	createAt: Date
+}
+
+
+extend type Query {
+	# 查找所有菜单
+	getBuildingInfo: [BuildingInfo]	
+	# 根据Id查找菜单
+	getBuildingInfoById(id:String):BuildingInfo
+	# 分页查找菜单
+	getBuildingInfoPage(pageIndex:Int,pageSize:Int,buildingInfo:searchBuildingInfo):[BuildingInfo]
+	# 统计数量
+	getBuildingInfoCount(buildingInfo:searchBuildingInfo):Int
+	# 根据条件查找菜单
+	getBuildingInfoWhere(buildingInfo: searchBuildingInfo): [BuildingInfo]
+}
+
+extend type Mutation {
+	# 创建菜单|修改菜单
+	saveBuildingInfo(buildingInfo: inputBuildingInfo): BuildingInfo		
+	# 删除菜单
+	deleteBuildingInfo(id:String):Boolean
+}
+
+input inputBuildingInfo {    
+	id:String
+	phone:String
+	email:String
+	qqLink:String
+	tcWeibo:String
+	xlWeibo:String
+	tbLink:String
+	address:String
+	brief:String
+	code:String
+	copyright:String				
+}
+
+input searchBuildingInfo {					
+	id: Json		
+}
