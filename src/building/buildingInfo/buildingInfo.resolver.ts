@@ -17,7 +17,7 @@ export class BuildingInfo {
 
         async getBuildingInfo(parent, { }, context): Promise<Array<IBuildingInfoModel>> {
 
-            if (!context.user) return null;
+            // if (!context.user) return null;
 
             return await BuildingInfoSchema.find();
 

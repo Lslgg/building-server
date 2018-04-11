@@ -46,7 +46,7 @@ export class BuildingArticle {
 
         async getBuildingArticleCount(parent, { buildingArticle }, context): Promise<Number> {
 
-            if (!context.user) return null;
+            // if (!context.user) return null;
 
             return await BuildingArticleSchema.count(buildingArticle);
         },

@@ -1,5 +1,5 @@
 import * as express from 'express';
-import middleware  from 'graphql-voyager/middleware/express';
+import middleware from 'graphql-voyager/middleware/express';
 import * as Mongoose from 'mongoose';
 import schema from './schema';
 import * as path from "path";
@@ -137,19 +137,17 @@ class Server {
 			credentials: true,
 			origin: [
 				"http://localhost:4200",
-				"http://localhost:3000",
-				"http://localhost:8083",
-				"http://localhost:8100",
 			],
 			headers: [
 				"Access-Control-Allow-Origin",
 				"Access-Control-Allow-Headers",
 				"Origin, X-Requested-With, Content-Type",
 				"CORELATION_ID"
-			] 
+			]
 		}
 		this.app.use(cors(corsOption));
 	}
 }
 
 export default new Server().app;
+

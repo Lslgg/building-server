@@ -15,7 +15,7 @@ export class BuildingMenu {
 
         async getBuildingMenu(parent, { }, context): Promise<Array<IBuildingMenuModel>> {
 
-            if (!context.user) return null;
+            // if (!context.user) return null;
 
             return await BuildingMenuSchema.find();
 
