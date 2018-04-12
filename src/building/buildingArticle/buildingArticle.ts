@@ -4,6 +4,8 @@ export interface IBuildingArticleModel extends Document {
     id: string
     type: String
     title: String
+    tag: String
+    brief:String
     author: String
     imageIds: [String]
     content: String
@@ -15,6 +17,8 @@ export interface IBuildingArticleModel extends Document {
 let schema: Schema = new Schema({
     type: String,
     title: String,
+    tag: String,
+    brief:String,
     author: String,
     imageIds: [String],
     content: String,

@@ -2,7 +2,9 @@
 type BuildingArticle {
 	id: ID	
 	type:String
-	title:String	
+	title:String
+	tag:String	
+	brief:String
 	author:String		
 	Images: [File]
 	content:String
@@ -36,6 +38,8 @@ input inputBuildingArticle {
     id: ID	
 	type:String
 	title:String	
+	tag:String
+	brief:String
 	author:String	
 	imageIds: [String] 
 	content:String
@@ -45,4 +49,5 @@ input inputBuildingArticle {
 input searchBuildingArticle {					
 	id: Json	
 	type: Json
+	title: RegExp
 }

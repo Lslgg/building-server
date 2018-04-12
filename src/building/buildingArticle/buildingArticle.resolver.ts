@@ -39,7 +39,7 @@ export class BuildingArticle {
         },
         async getBuildingArticlePage(parent, { pageIndex = 1, pageSize = 10, buildingArticle }, context): Promise<Array<IBuildingArticleModel>> {
 
-            if (!context.user) return null;
+            // if (!context.user) return null;
 
             return await BuildingArticleSchema.find(buildingArticle).skip((pageIndex - 1) * pageSize).limit(pageSize);
         },
