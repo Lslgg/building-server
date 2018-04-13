@@ -10,7 +10,9 @@ type BuildingInfo {
 	address:String
 	brief:String
 	code:String
-	copyright:String		
+	copyright:String	
+	contact1:String	
+	contact2:String
 	updateAt: Date
 	createAt: Date
 }
@@ -47,7 +49,9 @@ input inputBuildingInfo {
 	address:String
 	brief:String
 	code:String
-	copyright:String				
+	copyright:String	
+	contact1:String	
+	contact2:String			
 }
 
 input searchBuildingInfo {					
