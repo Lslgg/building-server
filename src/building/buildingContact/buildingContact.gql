@@ -1,0 +1,51 @@
+# 导航菜单
+type BuildingContact {
+	id: ID	
+	title:String
+	name:String
+	email:String
+	phone:String
+	content:String
+	isValid:Boolean
+	updateAt: Date
+	createAt: Date
+}
+
+
+extend type Query {
+	# 查找所有菜单
+	getBuildingContact: [BuildingContact]	
+	# 根据Id查找菜单
+	getBuildingContactById(id:String):BuildingContact
+	# 分页查找菜单
+	getBuildingContactPage(pageIndex:Int,pageSize:Int,buildingContact:searchBuildingContact):[BuildingContact]
+	# 统计数量
+	getBuildingContactCount(buildingContact:searchBuildingContact):Int
+	# 根据条件查找菜单
+	getBuildingContactWhere(buildingContact: searchBuildingContact): [BuildingContact]
+}
+
+extend type Mutation {
+	# 创建菜单|修改菜单
+	saveBuildingContact(buildingContact: inputBuildingContact): BuildingContact		
+	# 转换已读,未读状态
+	setState(id: String): Boolean
+	# 删除菜单
+	deleteBuildingContact(id:String):Boolean
+}
+
+input inputBuildingContact {
+    id: ID	
+	title:String
+	name:String
+	email:String
+	phone:String
+	content:String
+	isValid:Boolean
+}
+
+input searchBuildingContact {					
+	id: Json		
+	title: RegExp
+	isValid:Json
+}
