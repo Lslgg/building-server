@@ -54,13 +54,12 @@ export class BuildingContact {
 
     static Mutation: any = {
         async saveBuildingContact(parent, { buildingContact }, context): Promise<IBuildingContactModel> {
-            if (!context.user) return null;
-            if (buildingContact.id && buildingContact.id != "0") {
-                // let res = await BuildingContactSchema.findByIdAndUpdate(buildingContact.id, buildingContact);
-                // Object.assign(res, buildingContact);
-                // return res;
-                return null;
-            }
+            // if (buildingContact.id && buildingContact.id != "0") {
+            //     let res = await BuildingContactSchema.findByIdAndUpdate(buildingContact.id, buildingContact);
+            //     Object.assign(res, buildingContact);
+            //     return res;
+            //     return null;
+            // }
             return await BuildingContactSchema.create(buildingContact);
         },
         async deleteBuildingContact(parent, { id }, context): Promise<Boolean> {
