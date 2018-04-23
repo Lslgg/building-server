@@ -14,6 +14,7 @@ export interface IBuildingInfoModel extends Document {
     code: String
     contact1: String
     contact2: String
+    board: String
     updateAt: Date
     createAt: Date
 }
@@ -31,6 +32,7 @@ let schema: Schema = new Schema({
     copyright: String,
     contact1: String,
     contact2: String,
+    board: String,
     createAt: {
         type: Date,
         default: new Date(),
